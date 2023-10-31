@@ -1,12 +1,9 @@
-import SearchBar from "./Components/SearchBar";
+import Home from "./Pages/Home";
 
 function App() {
   return (
     <>
-      <div className="inconsolata">
-        <h2 className="">Aliquam</h2>
-        <SearchBar/>
-      </div>
+      <Home/>
     </>
   );
 }
