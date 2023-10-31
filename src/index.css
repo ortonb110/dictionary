@@ -1,3 +1,104 @@
+/* Typography */
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Inter:wght@400;500;700&family=Lora:wght@400;500;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer base {
+    html {
+        font-size: 62.5%;
+    }
+
+    /* Inter typography*/
+    .inter {
+        font-family: 'Inter', sans-serif;
+        font-size: 1.8rem;
+        line-height: 2.4rem;
+        font-weight: 400;
+    }
+    .inter h1 {
+        font-size: 6.4rem;
+        line-height: 7.7rem;
+        font-weight: 700;
+    }
+
+    .inter h2 {
+        font-size: 2.4rem;
+        line-height: 2.9rem;
+        font-weight: 500;
+    }
+    .inter h3 {
+        font-size: 2rem;
+        line-height: 2.4rem;
+        font-weight: 500;
+    }
+
+    .inter .small {
+        font-size: 1.4rem;
+        line-height: 1.7rem;
+        font-weight: 400;
+    }
+
+    /* Lora Typography */
+    .lora {
+        font-family: 'Lora', serif;
+        font-size: 1.8rem;
+        line-height: 2.4rem;
+        font-weight: 400;
+    }
+    .lora h1 {
+        font-size: 6.4rem;
+        line-height: 7.7rem;
+        font-weight: 700;
+    }
+
+    .lora h2 {
+        font-size: 2.4rem;
+        line-height: 2.9rem;
+        font-weight: 500;
+    }
+    .lora h3 {
+        font-size: 2rem;
+        line-height: 2.4rem;
+        font-weight: 500;
+    }
+
+    .lora .small {
+        font-size: 1.4rem;
+        line-height: 1.7rem;
+        font-weight: 400;
+    }
+
+    /* Inconsolata */
+    .inconsolata {
+        font-family: 'Inconsolata', monospace;
+        font-size: 1.8rem;
+        line-height: 2.4rem;
+        font-weight: 400;
+    }
+    .inconsolata h1 {
+        font-size: 6.4rem;
+        line-height: 7.7rem;
+        font-weight: 700;
+    }
+
+    .inconsolata h2 {
+        font-size: 2.4rem;
+        line-height: 2.9rem;
+        font-weight: 500;
+    }
+    .inconsolata h3 {
+        font-size: 2rem;
+        line-height: 2.4rem;
+        font-weight: 500;
+    }
+
+    .inconsolata .small {
+        font-size: 1.4rem;
+        line-height: 1.7rem;
+        font-weight: 400;
+    }
+    
+}

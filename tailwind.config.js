@@ -15,8 +15,10 @@ export default {
         lightOrange: "#FF5252",
       },
       fontFamily: {
-        
-      }
+        inter: ["'Inter', sans-serif"],
+        lora: ["'Lora', serif"],
+        inconsolata: ["'Inconsolata', monospace"],
+      },
     },
   },
   plugins: [],
