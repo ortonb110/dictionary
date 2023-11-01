@@ -11,6 +11,30 @@
         font-size: 62.5%;
     }
 
+    body {
+        padding: 2.4rem;
+        
+    }
+
+    /* @Media screen breakpoint */ 
+    /* Tablets */
+    @media screen and (min-width: 767px) {
+        body {
+            padding-inline: 5.9rem;
+            padding-top: 5.8rem;
+            padding-bottom: 5.8rem;
+        }
+    }
+    /* Desktops and larger screens*/
+    @media screen and (min-width: 1100px) {
+        body {
+            padding-inline: 35.1rem;
+        padding-top: 5.8rem;
+        padding-bottom: 5.8rem;
+        }
+    }
+   
+
     /* Inter typography*/
     .inter {
         font-family: 'Inter', sans-serif;
