@@ -75,6 +75,12 @@
         font-weight: 400;
     }
 
+    .inter input {
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 0.2rem;
+    }
+
     /* Lora Typography */
     .lora {
         font-family: 'Lora', serif;
@@ -103,6 +109,11 @@
         font-size: 1.4rem;
         line-height: 1.7rem;
         font-weight: 400;
+    }
+    .lora input {
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 0.2rem;
     }
 
     /* Inconsolata */
@@ -134,6 +145,12 @@
         line-height: 1.7rem;
         font-weight: 400;
     }
+
+    .inconsolata input {
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 0.2rem;
+    }
     
     .shadow-menu {
         box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.37);
@@ -141,9 +158,9 @@
 -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.37);
     }
     .shadow-menu-dark {
-        box-shadow: 0px 0px 20px 0px rgba(164,69,237,0.37);
--webkit-box-shadow: 0px 0px 20px 0px rgba(164,69,237,0.37);
--moz-box-shadow: 0px 0px 20px 0px rgba(164,69,237,0.37);
+        box-shadow: 0px 0px 20px 9px rgba(164,69,237,0.37);
+-webkit-box-shadow: 0px 0px 20px 9px rgba(164,69,237,0.37);
+-moz-box-shadow: 0px 0px 20px 9px rgba(164,69,237,0.37);
     }
 }
 

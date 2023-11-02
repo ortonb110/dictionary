@@ -8,12 +8,13 @@ const SearchBar = () => {
   const [loading, setLoading] = useState(false);
 
   return (
-    <form className="w-[73.6rem] ">
+    <form className=" ">
       <div className="relative h-[6.4rem] w-full">
         <motion.input
+        disabled={loading}
           type="text"
           placeholder="Search for any word..."
-          className={`h-full rounded-[1.6rem] text-[2rem] py-[2rem] pl-[2.4rem] font-bold font-inter w-full focus:outline-none bg-offWhite dark:bg-lightDark dark:text-white focus:ring-[0.8px] ${
+          className={`caret-lightPurple h-full rounded-[1.6rem] md:text-[2rem] py-[2rem] pl-[2.4rem] font-bold w-full focus:outline-none bg-offWhite dark:bg-lightDark dark:text-white focus:ring-[0.8px] ${
             fetchError ? "focus:ring-lightOrange" : "focus:ring-lightPurple"
           } `}
         />
