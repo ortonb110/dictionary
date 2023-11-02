@@ -8,7 +8,7 @@ const SearchBar = () => {
   const [loading, setLoading] = useState(false);
 
   return (
-    <form className="w-[73.6rem]">
+    <form className="w-[73.6rem] ">
       <div className="relative h-[6.4rem] w-full">
         <motion.input
           type="text"
