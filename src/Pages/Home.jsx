@@ -1,5 +1,6 @@
 import NavBar from "../Components/NavBar";
 import { useEffect } from "react";
+import SearchBar from "../Components/SearchBar";
 
 const Home = () => {
   const toggleColorScheme = () => {
@@ -30,7 +31,7 @@ const Home = () => {
   return (
     <main className="dark:bg-defaultDark bg-white text-defaultDark dark:text-white home inter">
       <NavBar toggleColorScheme={toggleColorScheme} />
-      <h1>hello world</h1>
+      <SearchBar/>
     </main>
   );
 };

@@ -2,8 +2,25 @@
 import dictionaryLogo from "../assets/images/logo.svg";
 import arrowDown from "../assets/images/icon-arrow-down.svg";
 import { useState } from "react";
+
+const fonts = [
+  {
+    title: "sans serif",
+    font: "inter",
+  },
+  {
+    title: "serif",
+    font: "lora",
+  },
+  {
+    title: "mono",
+    font: "inconsolata",
+  },
+];
+
 const NavBar = ({ toggleColorScheme }) => {
   const [color, setColor] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   const handleThemeSwitcher = () => {
     toggleColorScheme();
@@ -11,15 +28,30 @@ const NavBar = ({ toggleColorScheme }) => {
   };
 
   return (
-    <nav className="flex justify-between items-center ">
+    <nav className="flex justify-between items-center mb-[5.15rem]">
       <img src={dictionaryLogo} alt="Logo" className="w-[3.2rem] h-[3.65rem]" />
       <div className="flex justify-between items-center ">
-        <section>
+        <section className="relative">
           <button className="text-[1.8rem] font-bold leading-[2.4rem] capitalize flex justify-between items-center w-[12rem]">
             <span className="">sans serif</span>
             <img src={arrowDown} aria-hidden />
           </button>
-          {/* <div></div>    something goes here later */}
+          {isOpen && (
+            <div className="absolute z-10 p-[2.4rem] w-[18.3rem] bg-white dark:bg-lightDark rounded-[1.6rem] right-0 top-[4.2rem] shadow-menu dark:shadow-menu-dark">
+              <ul className="space-y-[1rem]">
+                {fonts.map((font, index) => {
+                  return (
+                    <li
+                      key={index}
+                      className={`font-${font.font} capitalize font-bold text-[1.8rem] leading-[2.4rem] hover:text-lightPurple cursor-pointer transition-all ease-in-out duration-150`}
+                    >
+                      {font.title}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          )}
         </section>
         <div className="w-[1px] h-[3.2rem] bg-veryLightGray mx-[2.6rem]"></div>
         <div className="flex justify-between items-center">
