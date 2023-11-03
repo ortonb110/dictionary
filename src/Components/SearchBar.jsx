@@ -1,18 +1,29 @@
+/* eslint-disable react/prop-types */
 import searchIcon from "../assets/images/icon-search.svg";
 import { BiLoader } from "react-icons/bi";
 import { IoClose } from "react-icons/io5";
 import { motion } from "framer-motion";
-import { useState, useRef } from "react";
-const SearchBar = () => {
-  const [fetchError, setFetchError] = useState(false);
-  const [loading, setLoading] = useState(false);
+import { useState } from "react";
+const SearchBar = ({ fetchError, loading, fetchWord, setFetchError }) => {
+  const [word, setWord] = useState("");
+
+  const handleSubmitForm = (e) => {
+    e.preventDefault();
+    if(word.length < 1) {
+      setFetchError(true)
+    } else {
+      fetchWord(word)
+      setFetchError(false);
+    }
+  };
 
   return (
-    <form className=" ">
+    <form className=" " onSubmit={handleSubmitForm}>
       <div className="relative h-[6.4rem] w-full">
         <motion.input
-        disabled={loading}
+          disabled={loading}
           type="text"
+          onChange={(e) => setWord(e.target.value)}
           placeholder="Search for any word..."
           className={`caret-lightPurple h-full rounded-[1.6rem] md:text-[2rem] py-[2rem] pl-[2.4rem] font-bold w-full focus:outline-none bg-offWhite dark:bg-lightDark dark:text-white focus:ring-[0.8px] ${
             fetchError ? "focus:ring-lightOrange" : "focus:ring-lightPurple"
