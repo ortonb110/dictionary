@@ -2,6 +2,7 @@ import NavBar from "../Components/NavBar";
 import { useEffect, useState } from "react";
 import SearchBar from "../Components/SearchBar";
 import axios from "axios";
+import Word from "../Components/Word";
 
 const Home = () => {
   const [fontValue, setFontValue] = useState('inter');
@@ -38,11 +39,15 @@ const Home = () => {
 
 const fetchWord = async(word) => {
   setLoading(true);
+  setFetchError(false);
   try {
     const {data} = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
     setLoading(false);
+
     console.log(data);
   } catch (error) {
+    setFetchError(true)
+    setLoading(false);
     console.log(error);
   }
 }
@@ -56,7 +61,9 @@ const fetchWord = async(word) => {
     <main className={`dark:bg-defaultDark bg-white text-defaultDark dark:text-white home ${fontValue}`}>
       <NavBar toggleColorScheme={toggleColorScheme} setFontValue={setFontValue} fontValue={fontValue} setFontName={setFontName} fontName={fontName}/>
       <SearchBar fetchError={fetchError} loading={loading} fetchWord={fetchWord} setFetchError={setFetchError}/>
-      
+      <div>
+        <Word/>
+      </div>
     </main>
   );
 };

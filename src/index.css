@@ -24,6 +24,11 @@
             padding-top: 5.8rem;
             padding-bottom: 5.8rem;
         }
+        /* .lora h1 {
+            font-size: 6.4rem;
+            line-height: 7.7rem;
+            font-weight: 700;
+        } */
     }
 
     /* In between desktop and tablet */
@@ -52,17 +57,8 @@
         line-height: 2.4rem;
         font-weight: 400;
     }
-    .inter h1 {
-        font-size: 6.4rem;
-        line-height: 7.7rem;
-        font-weight: 700;
-    }
-
-    .inter h2 {
-        font-size: 2.4rem;
-        line-height: 2.9rem;
-        font-weight: 500;
-    }
+    
+    
     .inter h3 {
         font-size: 2rem;
         line-height: 2.4rem;
@@ -88,17 +84,7 @@
         line-height: 2.4rem;
         font-weight: 400;
     }
-    .lora h1 {
-        font-size: 6.4rem;
-        line-height: 7.7rem;
-        font-weight: 700;
-    }
-
-    .lora h2 {
-        font-size: 2.4rem;
-        line-height: 2.9rem;
-        font-weight: 500;
-    }
+    
     .lora h3 {
         font-size: 2rem;
         line-height: 2.4rem;
@@ -123,17 +109,7 @@
         line-height: 2.4rem;
         font-weight: 400;
     }
-    .inconsolata h1 {
-        font-size: 6.4rem;
-        line-height: 7.7rem;
-        font-weight: 700;
-    }
-
-    .inconsolata h2 {
-        font-size: 2.4rem;
-        line-height: 2.9rem;
-        font-weight: 500;
-    }
+    
     .inconsolata h3 {
         font-size: 2rem;
         line-height: 2.4rem;
@@ -165,5 +141,10 @@
 }
 
 @layer components {
-    
+    .h1 {
+        @apply text-[3.2rem] md:text-[6.4rem] font-[700] md:leading-[7.7rem]
+    }
+    .h2 {
+        @apply text-[1.8rem] md:text-[2.4rem]   font-[500]
+    }
 }
