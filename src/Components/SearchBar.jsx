@@ -22,6 +22,7 @@ const SearchBar = ({ fetchError, loading, fetchWord, setFetchError }) => {
       <div className="relative h-[6.4rem] w-full">
         <motion.input
           disabled={loading}
+          autoFocus={fetchError}
           type="text"
           onChange={(e) => setWord(e.target.value)}
           placeholder="Search for any word..."

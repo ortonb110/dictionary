@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 
 const Word = ({ word, phonetic, audio }) => {
   return (
