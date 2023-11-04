@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import SearchBar from "../Components/SearchBar";
 import axios from "axios";
 import Word from "../Components/Word";
+import Meanings from "../Components/Meanings";
 
 const Home = () => {
   const [fontValue, setFontValue] = useState("inter");
@@ -10,6 +11,7 @@ const Home = () => {
   const [fetchError, setFetchError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState();
+  const [audioSrc, setAudioSrc] = useState("");
 
   const toggleColorScheme = () => {
     document.documentElement.classList.toggle("dark");
@@ -42,6 +44,7 @@ const Home = () => {
   const fetchWord = async (word) => {
     setLoading(true);
     setFetchError(false);
+    setAudioSrc('');
     try {
       const { data } = await axios.get(
         `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
@@ -92,7 +95,10 @@ const Home = () => {
         fetchWord={fetchWord}
         setFetchError={setFetchError}
       />
-      <div>{result && <Word {...result} />}</div>
+      <div>{result && <Word {...result} audioSrc={audioSrc} setAudioSrc={setAudioSrc}/>}</div>
+      <div>
+        <Meanings/>
+      </div>
     </main>
   );
 };
