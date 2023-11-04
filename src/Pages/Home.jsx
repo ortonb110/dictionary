@@ -12,7 +12,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState();
   const [audioSrc, setAudioSrc] = useState("");
-
+  const [meaning, setMeaning] = useState([]);
   const toggleColorScheme = () => {
     document.documentElement.classList.toggle("dark");
     if (document.documentElement.classList.contains("dark")) {
@@ -44,7 +44,7 @@ const Home = () => {
   const fetchWord = async (word) => {
     setLoading(true);
     setFetchError(false);
-    setAudioSrc('');
+    setAudioSrc("");
     try {
       const { data } = await axios.get(
         `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
@@ -56,7 +56,8 @@ const Home = () => {
         for (let j = 0; j < temp.length; j++) {
           if (temp[j].audio) {
             setResult(data[i]);
-            
+            setMeaning(data[i].meanings);
+
             break;
           } else {
             setResult(data[i]);
@@ -69,7 +70,6 @@ const Home = () => {
     } catch (error) {
       setFetchError(true);
       setLoading(false);
-      console.log(error);
     }
   };
 
@@ -95,9 +95,16 @@ const Home = () => {
         fetchWord={fetchWord}
         setFetchError={setFetchError}
       />
-      <div>{result && <Word {...result} audioSrc={audioSrc} setAudioSrc={setAudioSrc}/>}</div>
       <div>
-        <Meanings/>
+        {result && (
+          <Word {...result} audioSrc={audioSrc} setAudioSrc={setAudioSrc} />
+        )}
+      </div>
+      <div>
+        {meaning &&
+          meaning.map((res, index) => {
+            return <Meanings key={index} {...res} />;
+          })}
       </div>
     </main>
   );
