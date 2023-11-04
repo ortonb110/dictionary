@@ -1,23 +1,32 @@
 /* eslint-disable react/prop-types */
 import { Howl } from "howler";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Word = ({ word, phonetic, phonetics }) => {
-  let audioSrc = "";
+  const [audioSrc, setAudioSrc] = useState("");
+
   const handleAudio = (phonetics) => {
     for (let i = 0; i < phonetics.length; i++) {
       if (phonetics[i].audio) {
-        audioSrc = phonetics[i].audio;
+        setAudioSrc(phonetics[i].audio);
         break;
       }
     }
   };
 
+  const soundPlay = (uri) => {
+    var sound = new Howl({
+      src: [`${uri}`],
+      html5: true,
+      volume: 1.0,
+    });
+
+    sound.play();
+  };
+
   useEffect(() => {
     handleAudio(phonetics);
-    console.log(audioSrc);
-    
-  }, []);
+  }, [phonetics]);
 
   return (
     <section className="flex justify-between w-full items-center mt-[4.3rem] ">
@@ -25,7 +34,7 @@ const Word = ({ word, phonetic, phonetics }) => {
         <h1 className="h1">{word}</h1>
         <h2 className="h2 text-lightPurple">{phonetic}</h2>
       </div>
-      <button className="">
+      <button className="" onClick={() => soundPlay(audioSrc)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 75 75"
