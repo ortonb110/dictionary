@@ -4,6 +4,8 @@ import SearchBar from "../Components/SearchBar";
 import axios from "axios";
 import Word from "../Components/Word";
 import Meanings from "../Components/Meanings";
+import linkIcon from "../assets/images/icon-new-window.svg";
+import NoDefinitionFound from "../Components/NoDefinitionFound";
 
 const Home = () => {
   const [fontValue, setFontValue] = useState("inter");
@@ -13,6 +15,8 @@ const Home = () => {
   const [result, setResult] = useState();
   const [audioSrc, setAudioSrc] = useState("");
   const [meaning, setMeaning] = useState([]);
+  const [source, setSource] = useState("");
+
   const toggleColorScheme = () => {
     document.documentElement.classList.toggle("dark");
     if (document.documentElement.classList.contains("dark")) {
@@ -57,7 +61,8 @@ const Home = () => {
           if (temp[j].audio) {
             setResult(data[i]);
             setMeaning(data[i].meanings);
-
+            setSource(data[i].sourceUrls);
+            
             break;
           } else {
             setResult(data[i]);
@@ -95,17 +100,39 @@ const Home = () => {
         fetchWord={fetchWord}
         setFetchError={setFetchError}
       />
-      <div>
-        {result && (
-          <Word {...result} audioSrc={audioSrc} setAudioSrc={setAudioSrc} />
-        )}
-      </div>
-      <div>
-        {meaning &&
-          meaning.map((res, index) => {
-            return <Meanings key={index} {...res} />;
-          })}
-      </div>
+      {fetchError ? (
+        <NoDefinitionFound />
+      ) : (
+        <section>
+          <div>
+            {result && (
+              <Word {...result} audioSrc={audioSrc} setAudioSrc={setAudioSrc} />
+            )}
+          </div>
+          <div>
+            {meaning &&
+              meaning.map((res, index) => {
+                return <Meanings key={index} {...res} />;
+              })}
+          </div>
+          {source && (
+            <div className="flex gap-[2rem] mt-[1.9rem] flex-col md:flex-row">
+              <span className="capitalize h3 text-lightGray underline-offset-4 underline md:no-underline md:underline-offset-0">
+                source
+              </span>
+              <a
+                href={source}
+                className="flex gap-[9px]  hover:text-lightPurple"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span>{source}</span>
+                <img src={linkIcon} aria-hidden />
+              </a>
+            </div>
+          )}
+        </section>
+      )}
     </main>
   );
 };
