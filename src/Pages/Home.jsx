@@ -48,32 +48,21 @@ const Home = () => {
       );
       setLoading(false);
 
-      // data.map((def) => {
-      //   if (def.phonetics);
-      //   {
-      //     return console.log(def.phonetics);
-      //   }
-      //   console.log(def);
-      // });
-      // console.log(data.length, data);
-      // console.log(result);
-
-      for(let i =0; i< data.length; i++){
-        //console.log(data[i]);
-        let temp = data[i].phonetics
-        for(let j = 0; j < temp.length; j++) {
-            if(temp[j].audio) {
-              setResult(data[i])
-              break
-            } else {
-              setResult(data[i])
-            }
+      for (let i = 0; i < data.length; i++) {
+        let temp = data[i].phonetics;
+        for (let j = 0; j < temp.length; j++) {
+          if (temp[j].audio) {
+            setResult(data[i]);
+            
+            break;
+          } else {
+            setResult(data[i]);
+          }
         }
-        if(result) {
-          break
+        if (result) {
+          break;
         }
       }
-      
     } catch (error) {
       setFetchError(true);
       setLoading(false);
@@ -103,11 +92,7 @@ const Home = () => {
         fetchWord={fetchWord}
         setFetchError={setFetchError}
       />
-      <div>
-        {
-           result && <Word {...result}/>
-        }
-      </div>
+      <div>{result && <Word {...result} />}</div>
     </main>
   );
 };
