@@ -2,7 +2,7 @@
 
 <div align="center">
 
-  <h2 align="center">Photosnap</h2>
+  <h2 align="center">Dictionary</h2>
   <p align="center">
     <a href="https://www.frontendmentor.io/challenges/dictionary-web-app-h5wwnyuKFL"><strong>Frontend Mentor Challenge</strong></a>
     <br />
