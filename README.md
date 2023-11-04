@@ -40,8 +40,8 @@ This is a solution to the [Dictionary Challenge on Frontend Mentor](https://www.
 
 <h2 align="center">Links</h2>
 
-- Solution URL: [Dictionary(React + Tailwind) | Frontend Mentor](https://www.frontendmentor.io/solutions/responsive-photosnap-project-using-grid-flexbox-tailwindcss-q7uprGNRy3)
-- Live Site URL: [https://ortondev.noraveniintern.com/](https://ortondev.noraveniintern.com/)
+- Solution URL: [Dictionary(React + Tailwind) | Frontend Mentor](https://www.frontendmentor.io/solutions/responsive-dictionary-app-bEHNO_aGa5)
+- Live Site URL: [https://chic-florentine-c26012.netlify.app/](https://chic-florentine-c26012.netlify.app/)
 
 <br>
 
